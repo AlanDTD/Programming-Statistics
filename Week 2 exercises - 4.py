@@ -15,7 +15,7 @@ SD = float(0)
 
 
 if type(nums) == tuple: #Checks if ithe value is a tuple
-    while len(nums) < 3: #Checks the tuples lengeth is at least 5
+    while len(nums) < 3: #Checks the tuples lengeth is at least 3
         print("You do not have enough number")
         nums = eval(input("Please try again, at least 3")) #reruns the loop until the right number
     else:
