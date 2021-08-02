@@ -1,60 +1,41 @@
 #Black Jack 
 
 import random as rd #random module
-import sys #used to cancel game
 
 
+print("Hi There welcome to a game of 21 ")
 
 
-    #option to exit with  N
-print("Please enter Y to draw a card E to exit: ")
-
-player_input = input()
 player_value = 0
+
 new_card = 0
-    
-    
 
-while True: #main game loop
+player_state = input("To press enter to draw a card to start \n").upper()
 
-    if player_input == 'E':
-        print('Thanks for playing')
-        sys.exit()
-
-    #Card Draw 
-    if player_input == "Y":
-        new_card = rd.randint(2,11) #New Card drawn value
-        print("You have drawn %d \n" %new_card)
-        player_value = player_value + new_card #Add to card value
-        
-        #Check for winning conditions, and resets variables
-        if player_value == 21:
-            print("21! You win!")
-            player_value = 0 
-        #Check if last card is ace whether it will cause a burst or not
-        if new_card == 11 and player_value > 21:
-            player_value = player_value - 10 #Very hacky way of making the value 1
-        
-        #losing condition, plus resetting variables back to 0
-        elif player_value > 21:
-            print("Bust! you have %d please try again \n" %player_value)
-            player_value = 0 
+while player_state != 'S' or player_value > 21:
     
-    #Checks the game state, if player has restarted or still playing
-    if player_value == 0:
-        print("Please enter Y to draw a card or E to exit")
-        player_input = input()
+   
+    #Prompt	the	player to draw one card and display the value of the card drawn.	
+    new_card = rd.randint(2,11)
+    if player_value + new_card > 21 and new_card == 11:
+        player_value += 10
+    player_value = player_value + new_card
+    
+    print("You have drawn a %d," %new_card)
+    
+    #Ask whether they want to draw another card, or finish their game.
+    print("You currently have a total of %d! \n" %player_value)
+    player_state = input("To press enter to draw a card or enter S to stay \n").upper()
+
+    #Player chooses to finish the game output the cumulative sum of the card drawn and the value of the next card
+
+else: 
+    if player_value == 21:
+        print("You Win!")
     else:
-        print("You currently have %s enter Y to draw another card, E to exit" %player_value)
-        player_input = input()
-
-
-
-
-
-    
-    
-
-
-
-    
+        new_card = rd.randint(2,11)
+        if player_value + new_card > 21:
+            print("good timing as you would have busted! with", player_value + new_card)
+        else: 
+            print("You could have kept going as you were under 21 with", player_value + new_card)
+        
