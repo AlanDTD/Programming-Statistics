@@ -12,7 +12,7 @@ new_card = 0
 
 player_state = input("To press enter to draw a card to start \n").upper()
 
-while player_state != 'S' or player_value > 21:
+while player_state != 'S' and player_value <= 21:
     
    
     #Prompt	the	player to draw one card and display the value of the card drawn.	
@@ -25,13 +25,16 @@ while player_state != 'S' or player_value > 21:
     
     #Ask whether they want to draw another card, or finish their game.
     print("You currently have a total of %d! \n" %player_value)
-    player_state = input("To press enter to draw a card or enter S to stay \n").upper()
+    if player_value <= 21: #This to hide the input if the value has exceed 21 as we don't require the input
+        player_state = input("To press enter to draw a card or enter S to stay \n").upper()
 
-    #Player chooses to finish the game output the cumulative sum of the card drawn and the value of the next card
+    
 
 else: 
     if player_value == 21:
         print("You Win!")
+    elif player_value > 21:
+        print("You Bust! better luck next time")
     else:
         new_card = rd.randint(2,11)
         if player_value + new_card > 21:
