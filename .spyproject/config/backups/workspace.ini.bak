@@ -3,8 +3,10 @@ restore_data_on_startup = True
 save_data_on_exit = True
 save_history = True
 save_non_project_files = False
+project_type = empty-project-type
+recent_files = ['Week 3\\Week 3 Exercise 5.py']
 
 [main]
 version = 0.2.0
-recent_files = ['Week 2 exercises - 1.py', 'Week 2 exercises - 2.py', 'Week 2 exercises - 3.py', 'Week 2 exercises - 4.py', 'Week 2 exercises -5.py', 'Week 2 optional task practise experiment.py', 'Week exericses -5 version 2.py', 'Week 1 exercises.py']
+recent_files = []
 
